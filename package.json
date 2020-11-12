@@ -1,16 +1,18 @@
 {
-  "name": "quill-delta",
+  "name": "@clickup/quill-delta",
   "version": "4.2.2",
   "description": "Format for representing rich text documents and changes.",
   "author": "Jason Chen <jhchen7@gmail.com>",
   "homepage": "https://github.com/quilljs/delta",
   "main": "dist/Delta.js",
+  "typings": "dist/src/Delta.d.ts",
   "dependencies": {
     "fast-diff": "1.2.0",
     "lodash.clonedeep": "^4.5.0",
     "lodash.isequal": "^4.5.0"
   },
   "devDependencies": {
+    "@rollup/plugin-typescript": "^6.1.0",
     "@types/lodash.clonedeep": "^4.5.0",
     "@types/lodash.isequal": "^4.5.0",
     "@typescript-eslint/eslint-plugin": "^2.28.0",
@@ -22,6 +24,7 @@
     "istanbul": "~0.4.5",
     "jasmine": "^3.5.0",
     "prettier": "^2.0.4",
+    "rollup": "^2.33.1",
     "typescript": "^3.8.3"
   },
   "files": [
@@ -31,7 +34,7 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "tsc",
+    "build": "rollup -c rollup.config.js",
     "prepare": "npm run build",
     "lint": "eslint 'src/**/*.ts'",
     "test": "npm run build; jasmine test/*.js test/**/*.js",
